@@ -1,0 +1,108 @@
+// ПОДКЛЮЧЕНИЕ СТИЛЕЙ============================================
+@import "_mix";
+
+// ПОДКЛЮЧЕНИЕ СТИЛЕЙ============================================
+.button {
+	line-height: 42px;
+	width: 182px;
+	height: 47px;
+	font-family: Lato;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 0.67px;
+	text-align: center;
+	&:hover {
+		box-shadow: 0 0 20px #79b8fd;
+	}
+
+	&_w {
+		color: #ffffff;
+		border: 1px solid #ffffff;
+	}
+	&_b {
+		color: #000;
+		border: 1px solid #000;
+	}
+	@media (max-width: $md3+px) and (orientation: landscape) {
+		line-height: 32px;
+		width: 140px;
+		height: 34px;
+		font-size: 12px;
+	}
+}
+
+// Заготовки кнопок============================================================================
+
+// .button{
+
+// 	display: flex;
+// 	text-align: center;
+// 	justify-content:center;
+// 	align-items: center;
+// 	min-height: 60px;
+// 	padding: 0px 30px;
+// 	text-transform: uppercase;
+// 	letter-spacing: 2px;
+// 	font-size: 18px;
+// 	border-radius: 10px;
+// 	position: relative;
+// 	top: 0;
+// 	}
+
+//! стили для конкретной кнопки
+// 	.button_1{
+
+// 	color: #fff;
+// 	background-color: #5e5373;
+// 	box-shadow: 0 5px 0px #3c354a;
+// 	transition-property: all;
+// 	transition-duration: 0.5s;
+// 	transition-delay: 0s;
+// 	transition-timing-function: steps(2,start);
+// 	}
+
+// .button {
+// 	line-height: 48px;
+// 	width: 300px;
+// 	height: 50px;
+// 	color: #ffffff;
+// 	font-size: 14px;
+// 	font-weight: 700;
+// 	text-align: center;
+// 	text-transform: uppercase;
+// 	letter-spacing: 2.8px;
+// 	border: 1px solid #ffffff;
+// 	transition-duration: 300ms;
+// 	transition-timing-function: cubic-bezier(0.75, -1, 0.21, -1);
+// 	@media (max-width: $md3+px) {
+// 		width: 240px;
+// 	}
+// 	&:hover {
+// 		box-shadow: 0 0 20px white;
+// 	}
+// }
+
+// .mail {
+// 	&__button {
+// 		width: 126px;
+// 		height: 69px;
+// 		background-color: #64c29e;
+// 		color: #ffffff;
+// 		font-size: 24px;
+// 		font-weight: 300;
+// 		line-height: 24px;
+// 		text-align: center;
+// 		text-transform: uppercase;
+// 		margin: 0 0 0 8px;
+// 		transition-duration: 300ms;
+// 		transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+// 		@media (max-width: $md3+px) {
+// 			width: 250px;
+// 			height: 55px;
+// 			margin: 0;
+// 		}
+// 		&:hover {
+// 			box-shadow: 0 0 20px #64c29e;
+// 		}
+// 	}
+// }
