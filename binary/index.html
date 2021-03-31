@@ -1,0 +1,235 @@
+<!--сообщение браузеру как следует обрабатывать страницу-->
+<!DOCTYPE html>
+<!--оболочка содержимого, указываем язык содержимого-->
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<!--заголовок страницы, контейнер для другихважных данных, не отображается-->
+
+<head>
+	<!--кодировка страницы-->
+	<meta charset="utf-8" />
+	<!--Название страницы в браузере-->
+	<title>Project #14 домашнее задание весрстаем сайт с FLEX и Адаптивом</title>
+	<!-- Нижней строкой мыуказываем путь к файлу таблицы стилей css -->
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Мета тег для улучшения отображения адаптивной вёрстки -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+</head>
+
+<!--отображаемое тело страницы-->
+
+<body>
+	<div class="wrapper">
+		<header class="top" style="background-image: url(img/header.png);">
+			<div class="top__content">
+				<div class="container">
+					<div class="top__box">
+						<a href="#" class="top__logo">
+							<img src="img/Logo.png" alt="logo">
+						</a>
+					</div>
+					<div class="top__text">
+						<div class="top__title">Clear, smart, attractive design </div>
+						<div class="top__subtitle">for your app, logo, website</div>
+					</div>
+					<div class="top__footer">
+						<a class="top__button button button_w" href="#begin">READ MORE</a>
+						<a href="#begin" class="top__arrow"><img src="img/icons/Arrow-down.png" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="content-menu" id="begin">
+			<div class="menu">
+				<div class="container">
+					<nav class="menu__items">
+						<ul class="menu__list list">
+							<li><a href="#" class="list__item">HOME</a></li>
+							<li><a href="#begin" class="list__item list__item_active">ABOUT US</a></li>
+							<li><a href="#portfolio" class="list__item">PORTFOLIO</a></li>
+							<li><a href="#contact" class="list__item">CONTACT</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</section>
+		<section class="about">
+			<div class="container">
+				<div class="about__body">
+					<div class="about__header">
+						<div class="about__title title">ABOUT</div>
+						<div class="about__text">We specialize in contemporary, functional, and stunning websites with
+							design
+							that really brings that "WOW" factor.
+							In our design process, we make sure to stay one step ahead of the latest trends,
+							never forgetting to abide by key web standards.
+						</div>
+					</div>
+					<div class="about__row">
+						<div class="about__column">
+							<div class="item-about">
+								<div class="item-about__icon">
+									<img src="img/about/01.png" alt="">
+								</div>
+								<div class="item-about__title">WEB</div>
+								<div class="item-about__text">We tend to deliver unique and
+									functional design, through
+									innovation and creativity.</div>
+							</div>
+						</div>
+						<div class="about__column">
+							<div class="item-about">
+								<div class="item-about__icon">
+									<img src="img/about/02.png" alt="">
+								</div>
+								<div class="item-about__title">iOS AND ANDROID</div>
+								<div class="item-about__text">We seek to bring new businesses and
+									customers closer together through valuable
+									insights and proper targeting.</div>
+							</div>
+						</div>
+						<div class="about__column">
+							<div class="item-about">
+								<div class="item-about__icon">
+									<img src="img/about/03.png" alt="">
+								</div>
+								<div class="item-about__title">MARKETING</div>
+								<div class="item-about__text">We’ll help you establish the right goals
+									and build the right paths. Success depends
+									on setting the right intention.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="content" id="portfolio">
+			<div class="container">
+				<div class="content__title title">PORTFOLIO</div>
+				<nav class="content__menu">
+					<ul class="content__list list">
+						<li><input type="radio" name="tab-btn" value="" checked class="list__item"
+								id="list__item_all"></input>
+							<label for="list__item_all">ALL</label>
+						</li>
+						<li><input type="radio" name="tab-btn" value="" href="" class="list__item"
+								id="list__item_web">WEB</input>
+							<label for="list__item_web">WEB</label>
+						</li>
+						<li><input type="radio" name="tab-btn" value="" href="" class="list__item"
+								id="list__item_apps">APPS</input>
+							<label for="list__item_apps">APPS</label>
+						</li>
+						<li><input type="radio" name="tab-btn" value="" href="" class="list__item"
+								id="list__item_other">OTHER</input>
+							<label for="list__item_other">OTHER</label>
+						</li>
+					</ul>
+				</nav>
+				<div class="content__column">
+					<div class="content__fotoarea fotoarea">
+						<div class="fotoarea__row">
+							<a href="#" class="fotoarea__picture fotoarea__picture_web _active"><img src="img/web.jpg" alt=""></a>
+							<a href="#" class="fotoarea__picture fotoarea__picture_other _active"><img src="img/picture.jpg" alt="">
+							</a>
+							<a href="#" class="fotoarea__picture fotoarea__picture_web _active"><img src="img/web.jpg" alt=""></a>
+							<a href="#" class="fotoarea__picture fotoarea__picture_apps _active"><img src="img/apps.jpg" alt=""></a>
+							<a href="#" class="fotoarea__picture fotoarea__picture_apps _active"><img src="img/apps.jpg" alt=""></a>
+							<a href="#" class="fotoarea__picture fotoarea__picture_other _active"><img src="img/picture.jpg" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<a href="#" class="content__button button button_b">READ MORE</a>
+			</div>
+		</section>
+		<section class="partners" style="background-image: url(img/down-bg.png);">
+			<div class="container">
+				<div class="partners__body">
+					<div class="partners__title">Our partners</div>
+					<div class="partners__row">
+						<div class="partners__icons"><img src="img/icons/logo_02.png" alt=""></div>
+						<div class="partners__icons"><img src="img/icons/logo_03.png" alt=""></div>
+						<div class="partners__icons"><img src="img/icons/logo_04.png" alt=""></div>
+						<div class="partners__icons"><img src="img/icons/logo_05.png" alt=""></div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contact" id="contact">
+			<div class="contact__container container">
+				<div class="contact__body">
+					<div class="contact__title title">CONTACT</div>
+					<div class="contact__row">
+						<div class="contact__column">
+							<div class="form">
+								<form action="#" method="get">
+									<div class="form__first-straing">
+										<div class="form__name">YOUR NAME
+											<input class="form__text" tabindex="1" type="text" name="user" required>
+										</div>
+										<div class="form__mail">YOUR E-MAIL
+											<input class="form__email" tabindex="2" type="email" name="email" required>
+										</div>
+									</div>
+									<div class="form__textarea">MESSAGE
+										<textarea class="form__area" tabindex="3" name="textarea"></textarea>
+									</div>
+									<div class="form__button">
+										<button tabindex="4" type="submit">SEND</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="contact__column">
+							<div class="from">
+								<div class="from__idea">Have an idea for a project? Just looking to
+									explore and see the possibilities?
+									I'm here to help.
+								</div>
+								<div class="from__name">Postma Elena</div>
+								<div class="from__social">
+									<div class="from__column">
+										<div class="from__iconsmall">
+											<a href="#"><img src="img/icons/Facebook.png" alt=""></a>
+										</div>
+									</div>
+									<div class="from__column">
+										<div class="from__iconsmall">
+											<a href="#"><img src="img/icons/linkedin.png" alt=""></a>
+										</div>
+									</div>
+								</div>
+								<div class="from__mail"><span>e-mail:</span> <a
+										href="mailto:postma.elena@gmail.com">postma.elena@gmail.com</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+
+			<div class="fotter">
+				<div class="fotter__container container">
+					<div class="fotter__body">
+						<div class="fotter__logo">
+							<a href="#" class="fotter__link"><img src="img/logo_down.png" alt="logodown"></a>
+						</div>
+						<div class="fotter__links">
+							<a href="" class="fotter__link">Home</a>
+							<a href="" class="fotter__link">Facebook</a>
+							<a href="" class="fotter__link">LinkEdin</a>
+							<a href="" class="fotter__link">Contact</a>
+						</div>
+						<div class="fotter__allrighs">
+							© 2015. All Rights Reserved
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
