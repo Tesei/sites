@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Страница загадок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="headerWrap">
+        <div id="header">
+            <a href="index.html">Главная</a>
+            <span>/</span>
+
+            <a href="site_puzzle.html">Загадки</a>
+            <span>/</span>
+
+            <a href=" Number_game.html">Угадайка</a>
+            <span>/</span>
+
+            <a href=" Банковский вклад.html">Определение размера банковского вклада</a>
+        </div>
+    </div>
+
+    <div id=" contentWrap">
+        <div id="content">
+
+            <div id="center">
+                <h1>Отгадай загадки !</h1>
+                <div id="box">
+                    <p id="result"></p>
+                    <br>
+                    <p>
+                        Висит груша нельзя скушать
+                    </p>
+                    <input type="text" id="puzzle1">
+                    <br><br>
+
+                    <p>
+                        Без окон без дверей полна горница людей
+                    </p>
+                    <input type="text" id="puzzle2">
+                    <br><br>
+
+                    <p>
+                        То как зверь она завоет, то заплачет как дитя"
+                    </p>
+                    <input type="text" id="puzzle3">
+                    <br><br>
+
+                    <script src="scripts/app.js"></script>
+                    <button onclick="checkAnswers();">Ответить</button>
+
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            Copyright &copy 2016 <a href="https://geekbrains.ru/">GeekBrains</a>
+        </div>
+</body>
+
+</html>
