@@ -1,0 +1,1 @@
+location.href = "https://tesei.github.io/sites/selfSite/index.html";
