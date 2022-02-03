@@ -11,6 +11,7 @@
 - adaptive and responsive
 
 [Working project you can see at link:](https://www.indienews.ru)
+***
 [For example the template to HTML you can see a link:](https://tesei.github.io/sites/indieNews/index.html)
 
 
@@ -25,4 +26,5 @@
 - адаптивность
 
 [Готовый проект Вы можете посмотреть по ссылке:](https://www.indienews.ru)
+***
 [Образец вёрстки вы можете посмотреть по ссылке:](https://tesei.github.io/sites/indieNews/index.html)
