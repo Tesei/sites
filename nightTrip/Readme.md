@@ -1,20 +1,30 @@
 # Night Trip landing page
 
-This is a test page for my portfolio
+## This is a test page for my portfolio
 
+- lazy load for images and slides
+- preloader for images
 - slider have a dots skin
-- adaptive and responsive
 - built on native JavaScript
-- lazy load
 - animation with scroll
+- adaptive and responsive
 
+[For example the template to HTML you can see a link:](https://tesei.github.io/sites/nightTrip/index.html)
 
-
-- построен на чистом JavaScript
-- есть слайдер с кастомными точками
-- адаптивный и отзывчивый
-- отложенная загрузка
-- анимация при прокрутке
-
-## Original template keeps on this link: 
+## The original template keeps on this link: 
 - [Night Trip template](https://www.figma.com/file/9VW6sCP0WSnxEDiHy8nqNI/NT)
+
+
+## Страница сдана для моего портфолио
+
+- отложенная загрузка (lazy load) изображений и слайдов
+- создан прелоадер у изображений
+- построен на чистом JavaScript
+- слайдер с кастомными точками
+- анимация при скролле
+- адаптивность
+
+[Образец вёрстки вы можете посмотреть по ссылке:](https://tesei.github.io/sites/nightTrip/index.html)
+
+## Оригинал макета находится по ссылке: 
+- [Night Trip макет FIGMA](https://www.figma.com/file/9VW6sCP0WSnxEDiHy8nqNI/NT)
