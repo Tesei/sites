@@ -1,7 +1,6 @@
 # The portfolio page
 
 On this page, you can find my finished projects. 
-
 All this project includes some ideas and technologies. With them, I was training my work skill and a logic methods.
 For all the projects in the WEB, you can find from my web [site](https://tesei.github.io/sites/selfSite/index.html)
 ---
