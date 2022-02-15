@@ -633,6 +633,7 @@ h6, .h6 {
   bottom: 0;
   right: 0;
   background: linear-gradient(180deg, rgba(1, 22, 39, 0) 0%, #011627 76.64%, #011627 100%);
+  transform: translateY(5px);
 }
 .header__content {
   display: flex;

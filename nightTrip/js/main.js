@@ -521,12 +521,7 @@ function addClassActiveTimer(item, time) {
 var searchButton = document.querySelector('.menu__search');
 var menuButton = document.querySelector('.menu__btn');
 var searchInput = document.querySelector('.menu__input-search');
-var arrLinks = document.querySelectorAll('.menu__link');
-searchButton.addEventListener("click", function (e) {
-  if (searchInput.classList.contains('_active')) {
-    alert("The inquiry has been sent / Запрос отправлен");
-  } else addClassActive(searchInput);
-}); // Появление списков меню
+var arrLinks = document.querySelectorAll('.menu__link'); // Появление списков меню
 
 menuButton.addEventListener("click", function (e) {
   if (arrLinks[0].classList.contains('_active')) {
@@ -539,6 +534,21 @@ menuButton.addEventListener("click", function (e) {
       var _element = arrLinks[_index];
       addClassActiveTimer(_element, (_index + 1) * 200);
     }
+  }
+}); // Делегирование
+
+document.addEventListener("click", function (e) {
+  if (event.target.closest('.menu__form')) {
+    if (event.target.closest('.menu__search')) {
+      if (searchInput.classList.contains('_active')) {
+        alert("The inquiry has been sent / Запрос отправлен");
+      } else addClassActive(searchInput);
+    }
+  } else searchInput.classList.remove('_active');
+});
+document.addEventListener("keyup", function (event) {
+  if (event.code == 'Escape') {
+    searchInput.classList.remove('_active');
   }
 });
 
@@ -572,7 +582,7 @@ if (lazyImages.length > 0) {
   lazyImages.forEach(function (img) {
     if (img.dataset.src || img.dataset.srcset) {
       // Вставляем положение каждого изображения в позиции страницы сайта
-      lazyImagesPositions.push(img.getBoundingClientRect().top + pageYOffset);
+      lazyImagesPositions.push(img.getBoundingClientRect().top + scrollY);
       lazyScrollCheck();
     }
   });
@@ -591,7 +601,7 @@ function lazyScroll() {
 function lazyScrollCheck() {
   var imgIndex = lazyImagesPositions.findIndex( // Ищем индекс элемента, по позиции его положения на странице: количество прокрученных пикселей > позиция элемента - высота окна просмотра браузера
   function (item) {
-    return pageYOffset > item - windowHeight;
+    return scrollY > item - windowHeight;
   }); // Если, что-то найдено, то делаем проверку и вставляем в изначальные аттрибуты src данные местоположения картинки и удаляем новые аттрибуты data-src
 
   if (imgIndex >= 0) {
@@ -610,10 +620,10 @@ function lazyScrollCheck() {
 }
 
 function loadMore() {
-  var loadMoreBlockPos = loadMoreBlock.getBoundingClientRect().top + pageYOffset;
+  var loadMoreBlockPos = loadMoreBlock.getBoundingClientRect().top + scrollY;
   var loadMoreBlockHeight = loadMoreBlock.offsetHeight;
 
-  if (pageYOffset > loadMoreBlockPos + loadMoreBlockHeight - windowHeight) {
+  if (scrollY > loadMoreBlockPos + loadMoreBlockHeight - windowHeight) {
     getContent();
   }
 } // Загрузка блоков. !Требуется знание работы с сервером AJAX
@@ -628,8 +638,8 @@ function loadMore() {
 // }
 // Загружаем карту
 // function getMap() {
-//     const loadMapBlockPos = loadMapBlock.getBoundingClientRect().top + pageYOffset;
-//     if (pageYOffset > loadMapBlockPos - windowHeight) {
+//     const loadMapBlockPos = loadMapBlock.getBoundingClientRect().top + scrollY;
+//     if (scrollY > loadMapBlockPos - windowHeight) {
 //         const loadMapUrl = loadMapBlock.dataset.map;
 //         if (loadMapUrl) {
 //             loadMapBlock.insertAdjacentHTML(
@@ -789,7 +799,7 @@ var currentScroll; //ScrollOnScroll
 window.addEventListener('scroll', scroll_scroll);
 
 function scroll_scroll() {
-  var src_value = currentScroll = pageYOffset;
+  var src_value = currentScroll = scrollY;
   var header = document.querySelector('header.header');
 
   if (header !== null) {
@@ -812,7 +822,7 @@ function scroll_scroll() {
       }
       */
 
-      if (pageYOffset > block_offset - window.innerHeight / 1.5 && pageYOffset < block_offset + block_height - window.innerHeight / 5) {
+      if (scrollY > block_offset - window.innerHeight / 1.5 && scrollY < block_offset + block_height - window.innerHeight / 5) {
         block.classList.add('_scr-sector_active');
       } else {
         if (block.classList.contains('_scr-sector_active')) {
@@ -820,7 +830,7 @@ function scroll_scroll() {
         }
       }
 
-      if (pageYOffset > block_offset - window.innerHeight / 2 && pageYOffset < block_offset + block_height - window.innerHeight / 5) {
+      if (scrollY > block_offset - window.innerHeight / 2 && scrollY < block_offset + block_height - window.innerHeight / 5) {
         if (!block.classList.contains('_scr-sector_current')) {
           block.classList.add('_scr-sector_current');
         }
@@ -868,7 +878,7 @@ function scroll_scroll() {
   if (custom_scroll_line) {
     var window_height = window.innerHeight;
     var content_height = document.querySelector('.wrapper').offsetHeight;
-    var scr_procent = pageYOffset / (content_height - window_height) * 100;
+    var scr_procent = scrollY / (content_height - window_height) * 100;
     var custom_scroll_line_height = custom_scroll_line.offsetHeight;
     custom_scroll_line.style.transform = "translateY(" + (window_height - custom_scroll_line_height) / 100 * scr_procent + "px)";
   }
@@ -1095,7 +1105,7 @@ if (link) {
         var block_offset = offset(block_item).top;
         var block_height = block_item.offsetHeight;
 
-        if (pageYOffset > block_offset - window.innerHeight / 3 && pageYOffset < block_offset + block_height - window.innerHeight / 3) {
+        if (scrollY > block_offset - window.innerHeight / 3 && scrollY < block_offset + block_height - window.innerHeight / 3) {
           var current_links = document.querySelectorAll('._goto-block[href="#' + block + '"]');
 
           for (var _index6 = 0; _index6 < current_links.length; _index6++) {
@@ -1127,7 +1137,7 @@ if (goto_links) {
   for (var _index7 = 0; _index7 < goto_links.length; _index7++) {
     _loop2(_index7);
   }
-} // todo свойство офсет устанавливает отступ до блока, к которому мы передвигаемся по клику. С помощью этого отствупа регулируем растояние, чтобы длок не перекрывало шапкой сайта
+} // todo свойство офсет устанавливает отступ до блока, к которому мы передвигаемся по клику. С помощью этого отствупа регулируем растояние, чтобы блок не перекрывало шапкой сайта
 
 
 function _goto(target_block, speed) {
@@ -1151,8 +1161,8 @@ function _goto(target_block, speed) {
 
 function offset(el) {
   var rect = el.getBoundingClientRect(),
-      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      scrollLeft = window.scrollX || document.documentElement.scrollLeft,
+      scrollTop = window.scrollY || document.documentElement.scrollTop;
   return {
     top: rect.top + scrollTop,
     left: rect.left + scrollLeft
@@ -1274,12 +1284,12 @@ function custom_scroll(event) {
   }
 }
 
-var new_pos = pageYOffset;
+var new_pos = scrollY;
 
 function scroll_animate(event) {
   var window_height = window.innerHeight;
   var content_height = document.querySelector('.wrapper').offsetHeight;
-  var start_position = pageYOffset;
+  var start_position = scrollY;
   var pos_add = 100;
 
   if (event.keyCode == 40 || event.keyCode == 34 || event.deltaX > 0 || event.deltaY < 0) {
@@ -1311,30 +1321,17 @@ function scroll_animate(event) {
   } //If native scroll
   //disableScroll();
 
-} //FullScreenScroll2
+} // Scroll of first wall
 
 
-var headerBlock = document.querySelector('.header');
-var headerBlockHaveActive = headerBlock.classList.contains('_active');
+document.addEventListener("scroll", checkScrollLenght);
 
-if (headerBlockHaveActive && !_mainFunction_mainFunction__WEBPACK_IMPORTED_MODULE_0___default().any()) {
-  disableScroll();
-  window.addEventListener('wheel', full_scroll);
+function checkScrollLenght() {
+  if (scrollY <= 200) {
+    document.removeEventListener("scroll", checkScrollLenght);
+    var focusBlock = document.querySelector('.trip__top');
 
-  var _swiperScrolls = document.querySelectorAll('._swiper_scroll');
-
-  if (_swiperScrolls.length > 0) {
-    for (var _index9 = 0; _index9 < _swiperScrolls.length; _index9++) {
-      var _swiperScroll = _swiperScrolls[_index9];
-
-      _swiperScroll.addEventListener("mouseenter", function (e) {
-        window.removeEventListener('wheel', full_scroll);
-      });
-
-      _swiperScroll.addEventListener("mouseleave", function (e) {
-        window.addEventListener('wheel', full_scroll);
-      });
-    }
+    _goto(focusBlock, 1000);
   }
 }
 
@@ -1509,7 +1506,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if ($btn) {
     window.addEventListener('scroll', function () {
-      if (pageYOffset > 100) {
+      if (scrollY > 100) {
         $btn.classList.add('is-show');
       } else {
         $btn.classList.remove('is-show');
@@ -6516,7 +6513,7 @@ window.Element && !Element.prototype.closest && (Element.prototype.closest = fun
           t = u || !i.tagName ? null : i;
 
       if (u || t) {
-        var l = q.pageYOffset;
+        var l = q.scrollY;
         s.header && !O && (O = document.querySelector(s.header));
 
         var n,
@@ -6543,7 +6540,7 @@ window.Element && !Element.prototype.closest && (Element.prototype.closest = fun
           var n,
               o,
               a,
-              r = q.pageYOffset;
+              r = q.scrollY;
           if (e == t || r == t || (l < t && q.innerHeight + r) >= v) return M.cancelScroll(!0), o = t, a = u, 0 === (n = i) && document.body.focus(), a || (n.focus(), document.activeElement !== n && (n.setAttribute("tabindex", "-1"), n.focus(), n.style.outline = "none"), q.scrollTo(0, o)), H("scrollStop", s, i, c), !(C = m = null);
         },
             b = function b(e) {
@@ -6551,7 +6548,7 @@ window.Element && !Element.prototype.closest && (Element.prototype.closest = fun
           m || (m = e), w += e - m, d = l + y * (n = r = 1 < (r = 0 === S ? 0 : w / S) ? 1 : r, "easeInQuad" === (t = s).easing && (o = n * n), "easeOutQuad" === t.easing && (o = n * (2 - n)), "easeInOutQuad" === t.easing && (o = n < .5 ? 2 * n * n : (4 - 2 * n) * n - 1), "easeInCubic" === t.easing && (o = n * n * n), "easeOutCubic" === t.easing && (o = --n * n * n + 1), "easeInOutCubic" === t.easing && (o = n < .5 ? 4 * n * n * n : (n - 1) * (2 * n - 2) * (2 * n - 2) + 1), "easeInQuart" === t.easing && (o = n * n * n * n), "easeOutQuart" === t.easing && (o = 1 - --n * n * n * n), "easeInOutQuart" === t.easing && (o = n < .5 ? 8 * n * n * n * n : 1 - 8 * --n * n * n * n), "easeInQuint" === t.easing && (o = n * n * n * n * n), "easeOutQuint" === t.easing && (o = 1 + --n * n * n * n * n), "easeInOutQuint" === t.easing && (o = n < .5 ? 16 * n * n * n * n * n : 1 + 16 * --n * n * n * n * n), t.customEasing && (o = t.customEasing(n)), o || n), q.scrollTo(0, Math.floor(d)), E(d, g) || (C = q.requestAnimationFrame(b), m = e);
         };
 
-        0 === q.pageYOffset && q.scrollTo(0, 0), f = i, h = s, u || history.pushState && h.updateURL && history.pushState({
+        0 === q.scrollY && q.scrollTo(0, 0), f = i, h = s, u || history.pushState && h.updateURL && history.pushState({
           smoothScroll: JSON.stringify(h),
           anchor: f.id
         }, document.title, f === document.documentElement ? "#top" : "#" + f.id), "matchMedia" in q && q.matchMedia("(prefers-reduced-motion)").matches ? q.scrollTo(0, Math.floor(g)) : (H("scrollStart", s, i, c), M.cancelScroll(!0), q.requestAnimationFrame(b));
@@ -6578,7 +6575,7 @@ window.Element && !Element.prototype.closest && (Element.prototype.closest = fun
             var t = q.location.hash;
             t = t || "", history.replaceState({
               smoothScroll: JSON.stringify(e),
-              anchor: t || q.pageYOffset
+              anchor: t || q.scrollY
             }, document.title, t || q.location.href);
           }
         }(A), M.animateScroll(n, a));
