@@ -596,6 +596,10 @@ body {
   line-height: 122.22222%;
 }
 
+.menu__link._active {
+  color: #000000;
+}
+
 .menu__active-color {
   -webkit-transition: 0.3s ease;
   -o-transition: 0.3s ease;
