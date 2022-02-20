@@ -343,10 +343,12 @@ function body_lock_add(delay) {
   \*****************************************/
 /***/ (() => {
 
+//Popups - строка поиска
 var searchWrap = document.querySelector('.menu__button-wrapper');
 var arrIcon = document.querySelectorAll('.menu__search');
 var bodyTag = document.querySelector('body');
 searchWrap.addEventListener("click", function (e) {
+  putThePaddingOverlay(searchOverlay);
   switchIcon(arrIcon);
   toggleClass(indieNewsPopUp); // Запрещает перемотку окна во время открытого поиска
 
@@ -358,15 +360,36 @@ function switchIcon(arrayIcons) {
     var element = arrayIcons[index];
     element.classList.toggle('_active');
   }
-} //Popups - строка поиска
+} // Создание отступа строки поиска от верха окна просмотра
 
+
+function putThePaddingOverlay(element) {
+  var quant = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var lenghtOfScroll = scrollY;
+
+  if (document.documentElement.clientWidth < 435) {
+    element.style.top = hightAdBeforeMenu + menu.offsetHeight - 10 - quant - lenghtOfScroll + 'px';
+  } else {
+    element.style.top = hightAdBeforeMenu + menu.offsetHeight - quant - lenghtOfScroll + 'px';
+  }
+} // Медиазапросы ========================================
+
+
+enquire.register("screen and (orientation: landscape)", {
+  match: function match() {
+    putThePaddingOverlay(searchOverlay);
+  },
+  unmatch: function unmatch() {
+    putThePaddingOverlay(searchOverlay, 5);
+  }
+}); //===============================================================
+// Взаимодействие блокирующего слоя поиска с бургер меню
 
 var indieNewsPopUp = document.querySelector('.indieNews_popup');
 var iconMenu2 = document.querySelector('.menu__icon');
 var iconLens = document.querySelector('.menu__search_lens');
 var searchOverlay = document.querySelector('.search-overlay');
-var menu = document.querySelector('.menu'); // let hightOfMenu = menu.offsetHeight;
-
+var menu = document.querySelector('.menu');
 var hightAdBeforeMenu = 0;
 
 if (document.querySelector('.banner__before-header')) {
@@ -390,36 +413,7 @@ iconMenu2.addEventListener("click", function (e) {
   if (iconLens.classList.contains('_active')) switchIcon(arrIcon); // Запрещает перемотку окна во время открытого поиска
 
   if (bodyTag.classList.contains('_lock2')) bodyTag.classList.remove('_lock2');
-}); // Создание отступа строки поиска от меню
-
-var putThePaddingOverlay = function putThePaddingOverlay(element) {
-  var quant = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-
-  if (document.documentElement.clientWidth < 435) {
-    if (document.querySelector('.banner__before-header')) {
-      element.style.top = document.querySelector('.banner__before-header').offsetHeight + menu.offsetHeight - 10 + 'px';
-    } else {
-      element.style.top = menu.offsetHeight - 10 + 'px';
-    }
-  } else {
-    if (document.querySelector('.banner__before-header')) {
-      element.style.top = document.querySelector('.banner__before-header').offsetHeight + menu.offsetHeight - quant + 'px';
-    } else {
-      element.style.top = menu.offsetHeight - quant + 'px';
-    }
-  }
-};
-
-putThePaddingOverlay(searchOverlay); // Медиазапросы ========================================
-
-enquire.register("screen and (orientation: landscape)", {
-  match: function match() {
-    putThePaddingOverlay(searchOverlay);
-  },
-  unmatch: function unmatch() {
-    putThePaddingOverlay(searchOverlay, 5);
-  }
-});
+}); //===============================================================
 
 /***/ }),
 
