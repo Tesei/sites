@@ -1,4 +1,4 @@
-﻿# Night Trip landing page
+﻿# My own landing page
 
 ## This is a page when I show my projects
 
@@ -10,13 +10,10 @@
 - light house show more than 90 points
 - adaptive and responsive
 
-[For example the template to HTML you can see a link:](https://tesei.github.io/sites/nightTrip/index.html)
-
-## The original template keeps on this link: 
-- [Night Trip template](https://www.figma.com/file/9VW6sCP0WSnxEDiHy8nqNI/NT)
+For example the template to HTML you can see a [link:](https://tesei.github.io/sites)
 
 
-## Страница сдана для моего портфолио
+## Страница где я показываю свои проекты
 
 - отложенная загрузка (lazy load) изображений и слайдов
 - создан прелоадер у изображений
