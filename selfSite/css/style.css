@@ -638,6 +638,8 @@ body {
 }
 
 .header__language {
+  position: relative;
+  z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -702,6 +704,17 @@ body {
 .language__border_mobile {
   width: 4px;
   height: 32px;
+}
+
+.menu__defence-wrapper {
+  display: block;
+  position: fixed;
+  top: 25px;
+  right: 10px;
+  width: 65px;
+  height: 65px;
+  background-color: transparent;
+  z-index: 1;
 }
 
 .menu__list li:last-child {

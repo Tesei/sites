@@ -256,34 +256,33 @@ if (window.innerHeight < 1030) {
 			opacity: 1,
 		})
 };
-// Функции смены языка
-const formWrap = document.querySelector(".wrapper__form");
-const form = document.querySelector(".form");
-
-
-function openForm() {
+// Функция открытия/закрытия формы
+async function openForm() {
+	const formWrap = document.querySelector(".wrapper__form");
 	formWrap.classList.toggle("wrapper__form-active");
 };
 
+// Функции смены языка
+let fnChangeLanguage = async () => {
+	const languageSelector = document.querySelectorAll('.language__text');
 
-const languageSelector = document.querySelectorAll('.language__text');
-const languagePlace = document.querySelectorAll('.language__place');
+	for (let index = 0; index < languageSelector.length; index++) {
+		const languageItem = languageSelector[index];
+		languageItem.addEventListener("click", function (e) {
+			let languagePlace = document.querySelectorAll('.language__place');
+			for (let index = 0; index < languageSelector.length; index++) {
+				let languageItem2 = languageSelector[index];
+				languageItem2.classList.toggle("_active");
+			}
 
-for (let index = 0; index < languageSelector.length; index++) {
-	const languageItem = languageSelector[index];
-	languageItem.addEventListener("click", function (e) {
-		
-		for (let index = 0; index < languageSelector.length; index++) {
-			let languageItem2 = languageSelector[index];
-			languageItem2.classList.toggle("_active");
-		}
-
-		for (let index = 0; index < languagePlace.length; index++) {
-			let languagePlaceItem = languagePlace[index];
-			languagePlaceItem.classList.toggle("_active");
-		}
-	});
-};
+			for (let index = 0; index < languagePlace.length; index++) {
+				let languagePlaceItem = languagePlace[index];
+				languagePlaceItem.classList.toggle("_active");
+			}
+		});
+	}
+}
+fnChangeLanguage();;
 // Функция копирования содержтмого меню в динамическую "шапку"
 window.addEventListener("load", createDobleMenu);
 function createDobleMenu() {

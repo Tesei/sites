@@ -13,7 +13,7 @@
 For example the template to HTML you can see a [link:](https://tesei.github.io/sites)
 
 
-## Страница где я показываю свои проекты
+## Страница, где я показываю свои проекты
 
 - отложенная загрузка (lazy load) изображений и слайдов
 - создан прелоадер у изображений
