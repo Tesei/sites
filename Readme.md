@@ -5,7 +5,7 @@ All this project includes some ideas and technologies. With them, I was training
 For all the projects in the WEB, you can find from my web [site](https://tesei.github.io/sites/selfSite/index.html)
 
 ---
-## It is my last projects:
+## My recently projects:
 
 - indieNews (last)
 - nightTrip
